@@ -4,103 +4,106 @@ import QtQuick.Window 2.0
 import QtQuick.Layouts 1.1
 import QtQuick.XmlListModel 2.0
 import "parts"
+import "parts/logic.js" as Logic
 
 
 ApplicationWindow {
     id: applicationWindow1
     title: qsTr("Hello World")
-    height : 200
-    width : 200
-//Component.onCompleted : {
-//     applicationWindow1.height = maximumHeight;
-//    applicationWindow1.width = maximumWidth;
 
-//}
+    Component.onCompleted : {
+  applicationWindow1.height = maximumHeight;
+  applicationWindow1.width = maximumWidth;
 
+}
+Flickable{
 
     Rectangle {
         id: rectangle1
         x: 0
         y: 0
-        width: 200
-        height: 200
+        width: parent.width-10;
+        height: parent.height-10;
         color: "#585ef3"
-        anchors.leftMargin: -255
-        anchors.topMargin: -61
-        anchors.rightMargin: -100
-       anchors.bottomMargin: -282
+        anchors.leftMargin: 10
+        anchors.topMargin: 10
+        anchors.rightMargin: 10
+        anchors.bottomMargin: 10
         anchors.fill: parent
         clip: false
         visible: true
-        gradient: Gradient {
-            GradientStop {
-                position: 0
-                color: "#565cf6"
-            }
-
-            GradientStop {
-                position: 1
-                color: "#000000"
-            }
-
-        }
 
         TextEdit {
             id: textEdit1
-            x: 83
-            y: 14
+
             width: 80
             height: 20
             text: qsTr("Text Edit")
-            z: 2
+
             anchors.top: parent.top
             anchors.topMargin: 8
             anchors.right: parent.right
             anchors.rightMargin: 8
             font.pixelSize: 12
         }
+        GridView{
 
         ColumnLayout {
             id: columnLayout1
-            width: 122
+
+            spacing : 2
             anchors.left: parent.left
             anchors.leftMargin: 8
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 8
             anchors.top: parent.top
             anchors.topMargin: 33
+            Card {
+                Layout.alignment: Qt.AlignCenter
+            }
+
+
+
         }
 
         ColumnLayout {
             id: columnLayout2
-            width: 100
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 8
             anchors.top: parent.top
             anchors.topMargin: 33
             anchors.left: columnLayout1.right
             anchors.leftMargin: 6
+            Card {
+                Layout.alignment: Qt.AlignCenter
+            }
         }
 
         ColumnLayout {
             id: columnLayout3
-            height: 301
+
             anchors.right: parent.right
             anchors.rightMargin: 8
             anchors.top: parent.top
             anchors.topMargin: 34
             anchors.left: columnLayout2.right
             anchors.leftMargin: 6
+            Card {
+                Layout.alignment: Qt.AlignCenter
+            }
+        }
         }
 
         Text {
             id: text1
-            x: 124
-            height: 14
+
+            height: 15
             text: qsTr("Text")
+            anchors.left: parent.left
+            anchors.leftMargin: maximumWidth/2;
             anchors.top: parent.top
             anchors.topMargin: 0
-            z: 3
+
             clip: false
             font.pixelSize: 12
         }
@@ -111,6 +114,7 @@ ApplicationWindow {
 
 
     }
+}
 
 
 
