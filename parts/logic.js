@@ -2,8 +2,9 @@
 .pragma library
 .import QtQuick 2.0 as QQ
 
-var columns,last_searched,board_name;
-var column_min_size=10; //An optimal size must be found
+var columns_no,last_searched,board_name;
+columns_no = 3; //default columns no
+
 
 function position(curH,curW){
 

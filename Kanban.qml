@@ -9,29 +9,28 @@ import "parts/logic.js" as Logic
 
 ApplicationWindow {
     id: applicationWindow1
+    width: 1280
+    height: 720
     title: qsTr("Hello World")
 
-    Component.onCompleted : {
-  applicationWindow1.height = maximumHeight;
-  applicationWindow1.width = maximumWidth;
+//    Component.onCompleted : {
+//  applicationWindow1.height = maximumHeight;
+//  applicationWindow1.width = maximumWidth;
 
-}
-Flickable{
+//}
+
 
     Rectangle {
         id: rectangle1
-        x: 0
-        y: 0
-        width: parent.width-10;
-        height: parent.height-10;
+
         color: "#585ef3"
-        anchors.leftMargin: 10
-        anchors.topMargin: 10
-        anchors.rightMargin: 10
-        anchors.bottomMargin: 10
         anchors.fill: parent
-        clip: false
+
         visible: true
+        function getcolwidth(){
+            return rectangle1.width/Logic.columns_no;
+
+        }
 
         TextEdit {
             id: textEdit1
@@ -46,53 +45,46 @@ Flickable{
             anchors.rightMargin: 8
             font.pixelSize: 12
         }
-        GridView{
+
 
         ColumnLayout {
-            id: columnLayout1
+            id: column1
 
-            spacing : 2
+
             anchors.left: parent.left
-            anchors.leftMargin: 8
+            anchors.leftMargin: 5
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: 8
+            anchors.bottomMargin: 5
             anchors.top: parent.top
-            anchors.topMargin: 33
+            anchors.topMargin: 5
             Card {
                 Layout.alignment: Qt.AlignCenter
+            }
+
+            Component.onCompleted: {
+                var Component = Qt.createComponent("parts/Column.qml");
+                console.log(Component.errorString());
+
+                if (Component.status == Component.Ready){
+                    var g =Qt.createObject(column1,{"anchors.left" : parent.right });
+                    g.id="column2";
+                    console.log(Component.progress);
+                    if(g == null)
+                        console.log("Error");
+                }
+                else if (Component.status == Component.Error) {
+                        // Error Handling
+                        console.log("Error loading component:", Component.errorString());
+                    }
+
+
             }
 
 
 
         }
 
-        ColumnLayout {
-            id: columnLayout2
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 8
-            anchors.top: parent.top
-            anchors.topMargin: 33
-            anchors.left: columnLayout1.right
-            anchors.leftMargin: 6
-            Card {
-                Layout.alignment: Qt.AlignCenter
-            }
-        }
 
-        ColumnLayout {
-            id: columnLayout3
-
-            anchors.right: parent.right
-            anchors.rightMargin: 8
-            anchors.top: parent.top
-            anchors.topMargin: 34
-            anchors.left: columnLayout2.right
-            anchors.leftMargin: 6
-            Card {
-                Layout.alignment: Qt.AlignCenter
-            }
-        }
-        }
 
         Text {
             id: text1
@@ -105,7 +97,7 @@ Flickable{
             anchors.topMargin: 0
 
             clip: false
-            font.pixelSize: 12
+            font.pixelSize: 15
         }
 
 
@@ -114,7 +106,7 @@ Flickable{
 
 
     }
-}
+
 
 
 

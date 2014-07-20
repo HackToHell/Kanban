@@ -4,6 +4,7 @@ Item {
 
     id: card
 Rectangle {
+    id: rectangle1
 
     width: 200
     height: 100
@@ -28,8 +29,8 @@ Rectangle {
         anchors.right: parent.right
         anchors.topMargin: 8
         anchors.top: parent.top
-        anchors.bottom: ddate.bottom
-        anchors.verticalCenter: ddate.verticalCenter
+        //anchors.bottom: ddate.bottom
+        anchors.verticalCenter: parent.verticalCenter
         font.pixelSize: 12
         anchors.rightMargin: 8
     }
@@ -44,8 +45,8 @@ Rectangle {
         anchors.right: parent.right
         anchors.rightMargin: 11
         anchors.leftMargin: 8
-        anchors.topMargin: 6
-        anchors.top: ddate.bottom
+        anchors.topMargin: 28
+        anchors.top: parent.top
         anchors.left: parent.left
         font.pixelSize: 12
     }
@@ -59,7 +60,7 @@ Rectangle {
         anchors.bottomMargin: 8
         anchors.leftMargin: 8
         anchors.topMargin: 6
-        anchors.top: data.bottom
+       // anchors.top: data.bottom
         anchors.left: parent.left
         font.pixelSize: 12
     }
@@ -69,9 +70,10 @@ Rectangle {
         x: 168
         y: 83
         text: qsTr("Text")
-        anchors.top: priority.top
-        anchors.bottom: priority.bottom
-        anchors.verticalCenter: priority.verticalCenter
+        anchors.topMargin: 78
+        anchors.top: parent.top
+        //anchors.bottom: priority.bottom
+        anchors.verticalCenter: parent.verticalCenter
         font.pixelSize: 12
     }
 }
