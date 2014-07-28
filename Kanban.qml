@@ -51,6 +51,7 @@ ApplicationWindow {
             id: column1
 
 
+
             anchors.left: parent.left
             anchors.leftMargin: 5
             anchors.bottom: parent.bottom
@@ -62,23 +63,8 @@ ApplicationWindow {
             }
 
             Component.onCompleted: {
-                var Component = Qt.createComponent("parts/Column.qml");
-                console.log(Component.errorString());
-
-                if (Component.status == Component.Ready){
-                    var g =Qt.createObject(column1,{"anchors.left" : parent.right });
-                    g.id="column2";
-                    console.log(Component.progress);
-                    if(g == null)
-                        console.log("Error");
-                }
-                else if (Component.status == Component.Error) {
-                        // Error Handling
-                        console.log("Error loading component:", Component.errorString());
-                    }
-
-
-            }
+                Logic.loadcolumn(column1,rectangle1);
+              }
 
 
 

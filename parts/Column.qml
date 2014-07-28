@@ -6,7 +6,9 @@ import QtQuick.Layouts 1.1
 import QtQuick.XmlListModel 2.0
 import "../parts"
 
+
 ColumnLayout {
+
 
     Card {
         Layout.alignment: Qt.AlignCenter
