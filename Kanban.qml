@@ -1,3 +1,4 @@
+
 import QtQuick 2.2
 import QtQuick.Controls 1.1
 import QtQuick.Window 2.0
@@ -25,12 +26,8 @@ ApplicationWindow {
 
         color: "#585ef3"
         anchors.fill: parent
-
         visible: true
-        function getcolwidth(){
-            return rectangle1.width/Logic.columns_no;
 
-        }
 
         TextEdit {
             id: textEdit1
@@ -48,10 +45,10 @@ ApplicationWindow {
 
 
         ColumnLayout {
-            id: column1
+            id: column0
 
 
-
+            width : Logic.getcolwidth(rectangle1)
             anchors.left: parent.left
             anchors.leftMargin: 5
             anchors.bottom: parent.bottom
@@ -63,7 +60,7 @@ ApplicationWindow {
             }
 
             Component.onCompleted: {
-                Logic.loadcolumn(column1,rectangle1);
+                Logic.loadcolumn(column0,rectangle1);
               }
 
 

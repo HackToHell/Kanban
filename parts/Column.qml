@@ -8,8 +8,11 @@ import "../parts"
 
 
 ColumnLayout {
-
-
+    anchors.leftMargin: 15
+    anchors.bottom:parent.bottom
+    anchors.bottomMargin: 5
+    anchors.top: parent.top
+    anchors.topMargin: 5
     Card {
         Layout.alignment: Qt.AlignCenter
     }
