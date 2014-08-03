@@ -42,29 +42,45 @@ ApplicationWindow {
             anchors.rightMargin: 8
             font.pixelSize: 12
         }
-
-
-        ColumnLayout {
+        ScrollView{
             id: column0
 
 
             width : Logic.getcolwidth(rectangle1)
-            anchors.left: parent.left
+            anchors.left: rectangle1.left
             anchors.leftMargin: 5
-            anchors.bottom: parent.bottom
+            anchors.bottom: rectangle1.bottom
             anchors.bottomMargin: 5
-            anchors.top: parent.top
+            anchors.top: rectangle1.top
             anchors.topMargin: 5
+
+        ColumnLayout {
+
             Card {
+                Layout.alignment: Qt.AlignCenter
+            }
+            Card {
+                Layout.alignment: Qt.AlignCenter
+            }Card {
+                Layout.alignment: Qt.AlignCenter
+            }Card {
+                Layout.alignment: Qt.AlignCenter
+            }Card {
+                Layout.alignment: Qt.AlignCenter
+            }Card {
+                Layout.alignment: Qt.AlignCenter
+            }Card {
                 Layout.alignment: Qt.AlignCenter
             }
 
             Component.onCompleted: {
                 Logic.loadcolumn(column0,rectangle1);
+
               }
 
 
 
+        }
         }
 
 
@@ -74,7 +90,7 @@ ApplicationWindow {
 
             height: 15
             text: qsTr("Text")
-            anchors.left: parent.left
+            anchors.left: rectangle1.left
             anchors.leftMargin: maximumWidth/2;
             anchors.top: parent.top
             anchors.topMargin: 0
@@ -82,6 +98,8 @@ ApplicationWindow {
             clip: false
             font.pixelSize: 15
         }
+        
+
 
 
 
@@ -89,6 +107,7 @@ ApplicationWindow {
 
 
     }
+
 
 
 

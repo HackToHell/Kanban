@@ -29,6 +29,7 @@ function loadcolumn(column0,rectangle1){
 }
 
 
+
 function getcolwidth(rectangle1){
     return rectangle1.width/columns_no;
 

@@ -7,12 +7,38 @@ import QtQuick.XmlListModel 2.0
 import "../parts"
 
 
-ColumnLayout {
+ScrollView{
+Component.onCompleted: {
     anchors.leftMargin: 15
     anchors.bottom:parent.bottom
     anchors.bottomMargin: 5
     anchors.top: parent.top
     anchors.topMargin: 5
+}
+ColumnLayout {
+
+    Card {
+        Layout.alignment: Qt.AlignCenter
+    }
+
+    Card {
+        Layout.alignment: Qt.AlignCenter
+    }
+    Card {
+        Layout.alignment: Qt.AlignCenter
+    }
+    Card {
+        Layout.alignment: Qt.AlignCenter
+    }
+    Card {
+        Layout.alignment: Qt.AlignCenter
+    }
+    Card {
+        Layout.alignment: Qt.AlignCenter
+    }
+    Card {
+        Layout.alignment: Qt.AlignCenter
+    }
     Card {
         Layout.alignment: Qt.AlignCenter
     }
@@ -24,4 +50,5 @@ ColumnLayout {
 
 
 
+}
 }
